@@ -12,7 +12,8 @@ const Board = ({}) => {
   }, [])
 
   const handleOnDragEnd = (result: DropResult) => {
-
+    const {destination, source, type} = result;
+    console.log(destination, source, type)
   }
 
   return (
