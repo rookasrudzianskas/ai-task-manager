@@ -11,7 +11,11 @@ const Column = ({id, todos, index}: Props) => {
   return (
     <Draggable>
       {(provided) => (
-        <div>
+        <div
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          ref={provided.innerRef}
+        >
 
         </div>
       )}
