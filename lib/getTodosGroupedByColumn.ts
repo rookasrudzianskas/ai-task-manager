@@ -41,4 +41,10 @@ export const getTodosGroupedByColumn = async () => {
       columnTypes.indexOf(a[0]) - columnTypes.indexOf(b[0])
     ))
   )
+
+  const board: Board = {
+    columns: sortedColumns
+  }
+
+  return board;
 }
