@@ -7,6 +7,9 @@ import {useBoardStore} from "@/store/BoardStore";
 
 const Header = ({}) => {
   const [searchString, setSearchString] = useBoardStore((state) => [state.searchString, state.setSearchString]);
+
+
+
   return (
     <header>
       <div className="flex flex-col md:flex-row items-center p-5 bg-gray-500/10 rounded-b-2xl">

@@ -1,5 +1,6 @@
 import {Request} from "next/dist/compiled/@edge-runtime/primitives/fetch";
 import openai from "@/openai";
+import {NextResponse} from "next/server";
 
 export async function POST(request: Request) {
   const { todos } = await request.json();
@@ -23,4 +24,11 @@ export async function POST(request: Request) {
       },
     ]
   })
+
+  const { data } = response;
+
+  console.log("DATA IS: ", data);
+  console.log("DATA IS: ", data.choices[0].message);
+
+  return NextResponse.json(data.choices[0].message);
 }
