@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import {DraggableProvidedDraggableProps, DraggableProvidedDragHandleProps} from "react-beautiful-dnd";
+import {XCircleIcon} from "@heroicons/react/24/outline";
 
 type Props = {
   todo: Todo
@@ -19,7 +20,16 @@ const TodoCard = ({todo, index, id, innerRef, draggableProps, dragHandleProps }:
       ref={innerRef}
       className="bg-white rounded-md space-y-2 drop-dhadow-md"
     >
-      <h1>Hello</h1>
+      <div className="flex justify-between items-center p-5">
+        <p>{todo.title}</p>
+        <button className="text-red-500 hover:text-red-600">
+          <XCircleIcon className="ml-5 h-8 w-8" />
+        </button>
+      </div>
+
+      {/*{imageUrl && (*/}
+      {/*  */}
+      {/*)}*/}
     </div>
   );
 };
