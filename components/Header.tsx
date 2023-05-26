@@ -45,8 +45,8 @@ const Header = ({}) => {
       </div>
       <div className="flex items-center justify-center px-5 py-2 md:py-5">
         <p className="flex items-center text-sm font-light pr-5 rounded-xl w-fit shadow-xl bg-white italic max-w-3xl text-[#0055D1] p-5">
-          <UserCircleIcon className="inline-block h-10 w-10 text-[#0055D1] mr-1" />
-          GPT is summarizing the text for you in a few seconds and you can use it for free. Just sign up and start using it.
+          <UserCircleIcon className={`inline-block h-10 w-10 text-[#0055D1] mr-1 ${loading && 'animate-spin'}`} />
+          {suggestions && !loading ? suggestions : "GPT is summarizing your task for the day..." }
         </p>
       </div>
     </header>
