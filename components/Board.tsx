@@ -4,22 +4,23 @@ import {DragDropContext, Droppable} from 'react-beautiful-dnd';
 import {useBoardStore} from "@/store/BoardStore";
 
 const Board = ({}) => {
-  const getBoard = useBoardStore((state) => state.getBoard);
+  const [board, getBoard] = useBoardStore((state) => [state.board, state.getBoard]);
   useEffect(() => {
     getBoard();
   }, [])
 
+  console.log(board)
+
   return (
-    <h1>Hello</h1>
-    // <DragDropContext>
-    //   <Droppable droppableId="board" direction="horizontal" type="column">
-    //     {(provided) => (
-    //       <div>
-    //
-    //       </div>
-    //     )}
-    //   </Droppable>
-    // </DragDropContext>
+    <DragDropContext>
+      <Droppable droppableId="board" direction="horizontal" type="column">
+        {(provided) => (
+          <div>
+
+          </div>
+        )}
+      </Droppable>
+    </DragDropContext>
   );
 };
 
