@@ -25,6 +25,11 @@ const Board = ({}) => {
         ...board, columns: rearrangedColumns
       })
     }
+
+    // this step is needed becasuse indexes are stored as numbers 0, 1, 2 indstead of ids with DND library
+    const columns = Array.from(board.columns)
+    const startColIndex = columns[Number(source.droppableId)];
+    const finishColIndex = columns[Number(destination.droppableId)];
   }
 
   return (
