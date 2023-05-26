@@ -1,4 +1,6 @@
-export const fetchSuggestions = async (board: Board) => {
+import {formatTodosForAI} from "@/lib/formatTodosForAI"
+
+export const fetchSuggestion = async (board: Board) => {
   const todos = formatTodosForAI(board);
 
   const res = await fetch("/api/generateSummary", {
@@ -8,4 +10,10 @@ export const fetchSuggestions = async (board: Board) => {
     },
     body: JSON.stringify({ todos })
   });
+
+  const GPTdata = await res.json();
+  const { content } = GPTdata;
+
+  return content;
 }
+

@@ -4,6 +4,7 @@ import Image from "next/image";
 import {MagnifyingGlassIcon, UserCircleIcon} from "@heroicons/react/24/solid";
 import Avatar from 'react-avatar';
 import {useBoardStore} from "@/store/BoardStore";
+import {fetchSuggestion} from "@/lib/fetchSuggestion";
 
 const Header = ({}) => {
   const [board, searchString, setSearchString] = useBoardStore((state) => [state.board, state.searchString, state.setSearchString]);
