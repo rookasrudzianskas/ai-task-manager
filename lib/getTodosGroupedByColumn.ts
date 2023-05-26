@@ -13,5 +13,16 @@ export const getTodosGroupedByColumn = async () => {
         todos: []
       })
     }
+
+    acc.get(todo.status)!.todos.push({
+      $id: todo.$id,
+      $createdAt: todo.$createdAt,
+      title: todo.title,
+      status: todo.status,
+      // get the image if it exists
+      ...(todo.image && { image: JSON.parse(todo.image) })
+    });
+
+    return acc;
   }, new Map<TypedColumn, Column>());
 }
