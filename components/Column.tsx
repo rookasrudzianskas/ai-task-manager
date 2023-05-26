@@ -36,7 +36,7 @@ const Column = ({id, todos, index}: Props) => {
               >
                 <h2 className="flex items-center justify-between font-bold text-xl">
                   {idToColumnText[id]}
-                  <span className="text-gray-500 bg-gray-200 rounded-full px-2 py-2 font-normal text-sm">{todos.length}</span>
+                  <span className="text-gray-500 bg-gray-200 rounded-full px-2 py-2 mb-3 font-normal text-sm">{todos.length}</span>
                 </h2>
                 <div className="space-y-2">
                   {todos.map((todo, index) => (
