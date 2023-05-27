@@ -14,7 +14,12 @@ function Modal() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if(!newTaskInput) return;
 
+    // add task
+
+    setImage(null);
+    closeModal();
   }
 
   return (
