@@ -7,7 +7,7 @@ import TaskTypeRadioGroup from "@/components/TaskTypeRadioGroup";
 
 function Modal() {
   const [isOpen, closeModal] = useModalStore((state) => [state.isOpen, state.closeModal])
-  const [newTaskInput, setNewTaskInput] = useBoardStore((state) => [state.newTaskInput, state.setNewTaskInput])
+  const [image, setImage, newTaskInput, setNewTaskInput] = useBoardStore((state) => [state.image, state.setImage, state.newTaskInput, state.setNewTaskInput])
   const imagePickerRef = useRef<HTMLInputElement>(null)
   return (
     <Transition appear show={isOpen} as={Fragment}>
