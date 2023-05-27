@@ -50,6 +50,19 @@ function Modal() {
                   />
                 </div>
                 <TaskTypeRadioGroup />
+
+                <div>
+                  <input
+                    type="file"
+                    ref={imagePickerRef}
+                    hidden
+                    onChange={(e) => {
+                      if(!e.target.files![0].type.startsWith('image')) return;
+                      setImage(e.target.files![0]);
+                    }}
+
+                  />
+                </div>
               </Dialog.Panel>
             </Transition.Child>
           </div>
