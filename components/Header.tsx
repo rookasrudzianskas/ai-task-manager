@@ -11,16 +11,16 @@ const Header = ({}) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [suggestions, setSuggestions] = useState<string>("");
 
-  useEffect(() => {
-    if(board.columns.size === 0) return;
-    setLoading(true);
-    const fetchSuggestionFunc = async () => {
-      const suggestion = await fetchSuggestion(board);
-      setSuggestions(suggestion);
-      setLoading(false);
-    }
-    fetchSuggestionFunc();
-  }, [board])
+  // useEffect(() => {
+  //   if(board.columns.size === 0) return;
+  //   setLoading(true);
+  //   const fetchSuggestionFunc = async () => {
+  //     const suggestion = await fetchSuggestion(board);
+  //     setSuggestions(suggestion);
+  //     setLoading(false);
+  //   }
+  //   fetchSuggestionFunc();
+  // }, [board])
 
   return (
     <header>
