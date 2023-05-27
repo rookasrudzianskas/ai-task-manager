@@ -1,9 +1,10 @@
 "use client";
-import {useState, Fragment, useRef} from 'react'
+import React, {useState, Fragment, useRef} from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import {useModalStore} from "@/store/ModalStore";
 import {useBoardStore} from "@/store/BoardStore";
 import TaskTypeRadioGroup from "@/components/TaskTypeRadioGroup";
+import Image from "next/image";
 
 function Modal() {
   const [isOpen, closeModal] = useModalStore((state) => [state.isOpen, state.closeModal])
@@ -52,6 +53,15 @@ function Modal() {
                 <TaskTypeRadioGroup />
 
                 <div>
+                  {image && (
+                    <Image
+                      src={URL.createObjectURL(image)}
+                      alt={"image.name"}
+                      width={200}
+                      height={200}
+                      className="w-full h-44 object-cover mt-2 filter hover:grayscale transition-all duration-150 cursor-not-allowed "
+                    />
+                  )}
                   <input
                     type="file"
                     ref={imagePickerRef}
