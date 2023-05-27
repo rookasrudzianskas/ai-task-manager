@@ -114,6 +114,11 @@ export const useBoardStore = create<BoardState>((set, get) => ({
         newColumns.get(columnId)?.todos.push(newTodo);
       }
 
+      return {
+        board: {
+          columns: newColumns
+        }
+      }
     })
   }
 }))
