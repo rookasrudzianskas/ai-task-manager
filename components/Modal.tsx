@@ -18,7 +18,6 @@ function Modal() {
 
     // add task
     addTask(newTaskInput, newTaskType, image);
-
     setImage(null);
     closeModal();
   }
