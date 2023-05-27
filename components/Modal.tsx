@@ -8,7 +8,7 @@ function Modal() {
 
   return (
     // Use the `Transition` component at the root level
-    <Transition show={isOpen} as={Fragment}>
+    <Transition appear show={isOpen} as={Fragment}>
       <Dialog onClose={closeModal}>
         <Transition.Child
           as={Fragment}
