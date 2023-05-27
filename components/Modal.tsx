@@ -11,9 +11,15 @@ function Modal() {
   const [isOpen, closeModal] = useModalStore((state) => [state.isOpen, state.closeModal])
   const [image, setImage, newTaskInput, setNewTaskInput] = useBoardStore((state) => [state.image, state.setImage, state.newTaskInput, state.setNewTaskInput])
   const imagePickerRef = useRef<HTMLInputElement>(null)
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+  }
+
   return (
     <Transition appear show={isOpen} as={Fragment}>
-      <Dialog as="form" className="relative z-10" onClose={closeModal}>
+      <Dialog onSubmit={handleSubmit} as="form" className="relative z-10" onClose={closeModal}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
