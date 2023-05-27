@@ -1,5 +1,5 @@
 "use client";
-import React from 'react';
+import React, {useState} from 'react';
 import {DraggableProvidedDraggableProps, DraggableProvidedDragHandleProps} from "react-beautiful-dnd";
 import {XCircleIcon} from "@heroicons/react/24/outline";
 import {useBoardStore} from "@/store/BoardStore";
@@ -15,6 +15,8 @@ type Props = {
 
 const TodoCard = ({todo, index, id, innerRef, draggableProps, dragHandleProps }: Props) => {
   const deleteTask = useBoardStore((state) => state.deleteTask);
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
+
   return (
     <div
       {...draggableProps}
