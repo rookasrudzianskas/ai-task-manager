@@ -16,6 +16,7 @@ interface BoardState {
   setNewTaskType: (columnId: TypedColumn) => void;
   image: File | null;
   setImage: (image: File | null) => void;
+  addTask: (todo: string, columnId: TypedColumn, image?: File | null) => void;
 }
 
 export const useBoardStore = create<BoardState>((set, get) => ({
@@ -63,5 +64,8 @@ export const useBoardStore = create<BoardState>((set, get) => ({
       process.env.NEXT_PUBLIC_TODOS_COLLECTION_ID!,
       todo.$id
     );
+  },
+  addTask: async (todo: string, columnId: TypedColumn, image?: File | null) => {
+
   }
 }))
