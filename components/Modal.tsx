@@ -2,9 +2,11 @@
 import { useState, Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import {useModalStore} from "@/store/ModalStore";
+import {useBoardStore} from "@/store/BoardStore";
 
 function Modal() {
   const [isOpen, closeModal] = useModalStore((state) => [state.isOpen, state.closeModal])
+  const [newTaskInput, setNewTaskInput] = useBoardStore((state) => [state.newTaskInput, state.setNewTaskInput])
 
   return (
     <Transition appear show={isOpen} as={Fragment}>
@@ -36,6 +38,16 @@ function Modal() {
                 <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900 pb-2">
                   Add a task
                 </Dialog.Title>
+
+                <div className="mt-2">
+                  <input
+                    type="text"
+                    value={newTaskInput}
+                    onChange={(e) => setNewTaskInput(e.target.value)}
+                    placeholder="Enter a title for this task…"
+                    className="w-full border border-gray-300 rounded-md outline-none p-5"
+                  />
+                </div>
               </Dialog.Panel>
             </Transition.Child>
           </div>
