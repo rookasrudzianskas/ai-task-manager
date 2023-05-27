@@ -1,5 +1,5 @@
 "use client";
-import { useState, Fragment } from 'react'
+import {useState, Fragment, useRef} from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import {useModalStore} from "@/store/ModalStore";
 import {useBoardStore} from "@/store/BoardStore";
@@ -8,7 +8,7 @@ import TaskTypeRadioGroup from "@/components/TaskTypeRadioGroup";
 function Modal() {
   const [isOpen, closeModal] = useModalStore((state) => [state.isOpen, state.closeModal])
   const [newTaskInput, setNewTaskInput] = useBoardStore((state) => [state.newTaskInput, state.setNewTaskInput])
-
+  const imagePickerRef = useRef<HTMLInputElement>(null)
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="form" className="relative z-10" onClose={closeModal}>
