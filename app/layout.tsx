@@ -1,5 +1,4 @@
 import './globals.css'
-import 'core-js/es/symbol'
 import { Inter } from 'next/font/google'
 import React from "react";
 import Modal from "@/components/Modal";
