@@ -4,6 +4,7 @@ import {DraggableProvidedDraggableProps, DraggableProvidedDragHandleProps} from 
 import {XCircleIcon} from "@heroicons/react/24/outline";
 import {useBoardStore} from "@/store/BoardStore";
 import getUrl from "@/lib/getUrl";
+import Image from "next/image";
 
 type Props = {
   todo: Todo
@@ -44,9 +45,17 @@ const TodoCard = ({todo, index, id, innerRef, draggableProps, dragHandleProps }:
         </button>
       </div>
 
-      {/*{imageUrl && (*/}
-      {/*  */}
-      {/*)}*/}
+      {imageUrl && (
+        <div className="relative h-full w-full rounded-b-md">
+          <Image
+            src={imageUrl}
+            alt={'image'}
+            width={400}
+            height={400}
+            className="w-full object-contain rounded-b-md"
+          />
+        </div>
+      )}
     </div>
   );
 };
