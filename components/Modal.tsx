@@ -9,7 +9,7 @@ import {PhotoIcon} from "@heroicons/react/24/outline";
 
 function Modal() {
   const [isOpen, closeModal] = useModalStore((state) => [state.isOpen, state.closeModal])
-  const [addTask, image, setImage, newTaskInput, setNewTaskInput] = useBoardStore((state) => [state.addTask, state.image, state.setImage, state.newTaskInput, state.setNewTaskInput])
+  const [addTask, image, setImage, newTaskInput, setNewTaskInput, newTaskType] = useBoardStore((state) => [state.addTask, state.image, state.setImage, state.newTaskInput, state.setNewTaskInput, state.newTaskType])
   const imagePickerRef = useRef<HTMLInputElement>(null)
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -17,6 +17,7 @@ function Modal() {
     if(!newTaskInput) return;
 
     // add task
+    addTask(newTaskInput, newTaskType, image);
 
     setImage(null);
     closeModal();
