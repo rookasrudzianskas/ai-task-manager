@@ -2,7 +2,7 @@
 import React, {useEffect, useState} from 'react';
 import Image from "next/image";
 import {MagnifyingGlassIcon, UserCircleIcon} from "@heroicons/react/24/solid";
-import Avatar from 'react-avatar';
+// import Avatar from 'react-avatar';
 import {useBoardStore} from "@/store/BoardStore";
 import {fetchSuggestion} from "@/lib/fetchSuggestion";
 
@@ -40,7 +40,7 @@ const Header = ({}) => {
             <button type={'submit'} hidden>Search</button>
           </form>
           {/*@ts-ignore*/}
-          <Avatar name="Rokas Rudzianskas" round color="#0055D1" size={'50'} />
+          {/*<Avatar name="Rokas Rudzianskas" round color="#0055D1" size={'50'} />*/}
         </div>
       </div>
       <div className="flex items-center justify-center px-5 py-2 md:py-5">
