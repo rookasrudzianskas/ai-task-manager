@@ -5,6 +5,7 @@ import {useModalStore} from "@/store/ModalStore";
 import {useBoardStore} from "@/store/BoardStore";
 import TaskTypeRadioGroup from "@/components/TaskTypeRadioGroup";
 import Image from "next/image";
+import {PhotoIcon} from "@heroicons/react/24/outline";
 
 function Modal() {
   const [isOpen, closeModal] = useModalStore((state) => [state.isOpen, state.closeModal])
@@ -52,13 +53,26 @@ function Modal() {
                 </div>
                 <TaskTypeRadioGroup />
 
-                <div>
+                <div className="mt-2">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      imagePickerRef.current?.click()
+                    }}
+                    className="w-full border border-gray-300 rounded-md outline-none p-5 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
+                    <PhotoIcon className="h-6 w-6 mr-2 inline-block" />
+                    Upload Image
+                  </button>
+
                   {image && (
                     <Image
                       src={URL.createObjectURL(image)}
                       alt={"image.name"}
                       width={200}
                       height={200}
+                      onClick={() => {
+                        setImage(null)
+                      }}
                       className="w-full h-44 object-cover mt-2 filter hover:grayscale transition-all duration-150 cursor-not-allowed "
                     />
                   )}
@@ -72,6 +86,16 @@ function Modal() {
                     }}
 
                   />
+                </div>
+
+                <div className="mt-4">
+                  <button
+                    type="submit"
+                    disabled={!newTaskInput}
+                    className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:bg-gray-100 disabled:text-gray-300 disabled:cursor-not-allowed"
+                  >
+                    Add Task
+                  </button>
                 </div>
               </Dialog.Panel>
             </Transition.Child>
