@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import {getTodosGroupedByColumn} from "@/lib/getTodosGroupedByColumn";
-import {databases, storage} from "@/appwrite";
+import {databases, ID, storage} from "@/appwrite";
+import {uploadImage} from "@/lib/uploadImage";
 
 interface BoardState {
   board: Board;
@@ -77,5 +78,17 @@ export const useBoardStore = create<BoardState>((set, get) => ({
         }
       }
     }
+
+    await databases.createDocument(
+      process.env.NEXT_PUBLIC_DATABASE_ID!,
+      process.env.NEXT_PUBLIC_TODOS_COLLECTION_ID!,
+      ID.unique(),
+      {
+        title: todo,
+        status: columnId,
+        ...(file && { image: JSON.stringify(file) })
+      }
+    )
+
   }
 }))
