@@ -1,5 +1,7 @@
 This is ai task manager tool, which is using GPT-4.
 
+<img src="public/home.png" />
+
 ## Getting Started
 
 First, run the development server:
